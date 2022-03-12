@@ -1,0 +1,176 @@
+@charset "UTF-8";
+
+/* 共通パーツ */
+html{
+    height: 100%;
+    font-size: 16px;
+}
+
+body{
+    height: 100%;
+    background:  linear-gradient(#0268C7, #4FAAFD,#FBE232);
+
+}
+
+#login{
+        display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 200px;
+}
+/* ヘッダーエリア */
+.header{
+    margin: auto;
+    text-align: center;
+    margin-bottom: 50px;
+    /* margin: 0 auto; */
+}
+
+.head_logo{
+    width: 40%;
+    height: 40%;
+    /* size: 20ch; */
+
+
+}
+
+.head_text{
+    font-size: 3rem; /* ② */
+  margin-top: 5px; /* ③ */
+  margin-bottom: 5px; /* ③ */
+  color: #ffffff;
+}
+/* ウィンドウエリア */
+
+#container{
+
+    max-width: 17%;
+    max-height: 75%;
+    background-color:rgba(0,0,0,0.2);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 0 auto;
+
+}
+
+.login-text{
+ text-align: center;
+ font-size:1.5rem;
+ color: #ffffff;
+ margin: 40px;
+}
+
+.form{
+    margin: 0,auto;
+}
+
+.form-wrapper{
+    margin-bottom: 30px;
+    color: #ffffff;
+
+
+}
+.input{
+
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
+    padding: 2px;
+    outline: none;
+    border: 1px,solid #b1b1b1;
+    border-style: none;
+    appearance: none;
+    margin-top: 10px;
+}
+
+.form-button{
+    margin-right: auto;
+    text-align: right;
+
+
+}
+
+.button{
+    font-size: 1.25rem;
+    color: #ffffff;
+    background-color: #dc143c;
+    border-radius: 5px;
+    width: 40%;
+    height: 40px;
+    padding: 2px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+
+
+    /* margin-left: 64%; */
+}
+
+.login-text-s{
+ text-align: center;
+ font-size:1.2rem;
+ color: #ffffff;
+ margin: 40px;
+}
+
+/* 新規作成エリア*/
+
+.register-text{
+    text-align: center;
+ font-size:1.5rem;
+ color: #ffffff;
+ margin: 20px;
+}
+
+
+
+.register-text-s{
+     text-align: center;
+ font-size:1.2rem;
+ color: #ffffff;
+ margin: 40px;
+}
+
+/*ようこそエリア*/
+
+
+
+
+#clear{
+     text-align: center;
+}
+.welcome-name{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 40px;
+}
+
+.welcome-message{
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 40px;
+}
+
+.login-btn{
+    text-align: center;
+    margin: 0,auto;
+}
+
+
+.btn{
+
+    display: inline-block;
+    font-size: 1.15rem;
+    color: #ffffff;
+    background-color: #dc143c;
+    border-radius: 5px;
+    width: 45%;
+    height: 40px;
+    padding: 2px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+}

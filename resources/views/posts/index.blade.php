@@ -1,0 +1,14 @@
+@extends('layouts.login')
+
+@section('content')
+<div class =tweet>
+<img src="images/arrow.png">
+<div class =tweet-form>
+      {{ Form::label('') }}
+      {{ Form::text('mail',null,['class' => 'input']) }}
+    </div>
+     <div class =tweet-button>
+  {{ Form::submit('tweet',['class' => 'button']) }}
+</div>
+</div>
+@endsection

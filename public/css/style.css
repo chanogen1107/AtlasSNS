@@ -1,0 +1,95 @@
+@charset "utf-8";
+html{
+}
+body{
+}
+/* header */
+header{
+
+}
+
+#head{
+    background:#186AC9;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    /*wa*/
+}
+
+h1{
+
+    width: 30%;
+}
+
+.top_head_logo{
+    width: 25%;
+    padding: 15px;
+}
+
+#ac-menu{
+    text-align: right;
+    margin-left: auto;
+}
+
+.menu{
+    width: 20%;
+    text-align: center;
+    margin-left: auto;
+}
+
+.menu__item {
+  background: #186AC9;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 1px;
+  position: relative;
+}
+.menu__item__link {
+  color: #fff;
+  display: block;
+  padding: 1rem;
+}
+
+.submenu {
+  background: #fff;
+  display: none;
+}
+.submenu__item {
+  border-bottom: 1px solid #000080;
+  color: #a9a9a9;
+  padding: 1rem;
+}
+/* main content */
+
+
+#row{
+    display: flex;
+    flex-flow: row wrap;
+}
+#container{
+    flex: 0 0 80%;
+}
+#side-bar{
+    flex: 0 0 19%;
+    border-left: 1px solid #727272;
+}
+
+.tweet{
+       display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.tweet-form{
+    width: 70%;
+    max-height: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.input{
+    width: 100%;
+    height: 100px;
+}
