@@ -40,7 +40,7 @@ Route::get('/profile','UsersController@profile')->middleware('auth');
 
 Route::get('/search','UsersController@index')->middleware('auth');
 
-// Route::get('/','UsersController@index');
+Route::get('/search-end','UsersController@search')->middleware('auth');
 
 ;
 

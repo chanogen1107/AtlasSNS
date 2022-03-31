@@ -14,6 +14,9 @@
     </div>
      <div class =search-button>
          <button type="submit" class="btn btn-primary col-md-5">検索</button>
+@if(!empty($message))
+<div class="alert alert-primary" role="alert">{{ $message}}</div>
+@endif
 
   <!-- {{ Form::submit('',['class' => 'button']) }} -->
 </div>
@@ -36,5 +39,6 @@
 </table>
 </div>
 
+</div>
 
 @endsection
