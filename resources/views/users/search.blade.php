@@ -7,8 +7,7 @@
   {{method_field('get')}}
 <div class =search>
 <div class =search-form>
-   <label>名前</label>
-    <input type="text" class="form-control col-md-5" placeholder="検索したい名前を入力してください" name="username">
+    <input type="text" class="form-control col-md-5" placeholder="ユーザー名" name="username">
       <!-- {{ Form::label('') }}
       {{ Form::text('search',null,['class' => 'search-input']) }} -->
     </div>
@@ -25,12 +24,31 @@
 <div style="margin-top:50px;">
 <h1>ユーザー一覧</h1>
 <table class="table">
-  <tr>
-    <th>ユーザー名</th><th>年齢</th><th>性別</th>
-  </tr>
 @foreach($users as $user)
   <tr>
-    <td><img src= {{$user->images}} ></td><td>{{$user->username}}</td><td>{{ Form::submit('follow',['class' => 'button']) }}</td>
+    <td><img src= {{$user->images}} ></td><td>{{$user->username}}</td>
+
+    <!-- <td>{{ Form::submit('フォローする',['class' => 'button']) }}</td><td>{{ Form::submit('フォローを外す',['class' => 'button']) }}</td> -->
+
+<div class="d-flex justify-content-end flex-grow-1">
+@if (auth()->user()->isFollowing($user->id))
+<form action="{{ route('unfollow', ['id' => $user->id]) }}" method="POST">
+{{ csrf_field() }}
+{{ method_field('DELETE') }}
+
+<button type="submit" class="btn btn-danger">フォロー解除</button>
+</form>
+@else
+<form action="{{ route('follow', ['id' => $user->id]) }}" method="POST">
+{{ csrf_field() }}
+
+<button type="submit" class="btn btn-primary">フォローする</button>
+</form>
+@endif
+</div>
+
+ <!-- followが未定義メソッドだって言われる -->
+
   </tr>
 @endforeach
 </table>
