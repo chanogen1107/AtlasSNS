@@ -40,6 +40,7 @@
 </form>
 @else
 <form action="{{ route('follow', ['id' => $user->id]) }}" method="POST">
+  <!-- <input type=hidden name="id"> -->
 {{ csrf_field() }}
 
 <button type="submit" class="btn btn-primary">フォローする</button>

@@ -42,8 +42,8 @@ Route::get('/search','UsersController@index')->middleware('auth');
 
 Route::get('/search-end','UsersController@search')->middleware('auth');
 
- Route::post('users/{user}/follow', 'UsersController@follow')->name('follow');
-    Route::delete('users/{user}/unfollow', 'UsersController@unfollow')->name('unfollow');
+Route::post('users/{id}/follow', 'UsersController@follow')->name('follow');
+    Route::delete('users/{id}/unfollow', 'UsersController@unfollow')->name('unfollow');
 ;
 
 Route::get('/follow-list','PostsController@index')->middleware('auth');

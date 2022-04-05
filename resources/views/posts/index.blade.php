@@ -10,5 +10,7 @@
      <div class =tweet-button>
   {{ Form::submit('tweet',['class' => 'button']) }}
 </div>
+
 </div>
+
 @endsection
