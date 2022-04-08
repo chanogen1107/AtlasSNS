@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Follow;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -11,7 +12,7 @@ class UsersController extends Controller
 
  public function show(){
         $auths = Auth::user();
-        return view('posts.index', [ 'auths' => $auths ]);
+        return view('posts.index')->with('auths',$auths);
     }
 
 

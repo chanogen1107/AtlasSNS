@@ -1,3 +1,8 @@
+@if(isset($follow_count))
+    <p>{{$follow_count}}</p>
+@else
+    <p>メッセージは存在しません。</p>
+@endif
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +33,8 @@
       </h1>
       <ul class="menu">
         <li class="menu__item">
-          <a class="menu__item__link js-menu__item__link" href="">{{$auths}}さん<img src="images/arrow.png"></a>
+          <a class="menu__item__link js-menu__item__link" href="">
+          {{ Auth::user()->username }}さん<img src="images/arrow.png"></a>
             <ul class="submenu">
               <li class="submenu__item">
                 <a href="/top">HOME</a>
@@ -61,16 +67,16 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>{{$auths}}さんの</p>
+                <p>{{ Auth::user()->username }}さんの</p>
 
                 <div>
                 <p>フォロー数</p>
-                <p>{{'follow_count'}}名</p>
+                <p>{{ $follow_count }}名</p>
                 </div>
                 <p class="btn"><a href="/follow-list">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
-                <p>'follower_count'名</p>
+                <p>{{ $follower_count }}名</p>
                 </div>
                 <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
             </div>

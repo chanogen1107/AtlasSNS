@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Follow extends Model
 {
     protected $fillable = [
-    'following_id', 'followed_id'
-  ];
+        'following_id', 'followed_id'
+      ];
 
   public function getFollowCount($user_id)
   {

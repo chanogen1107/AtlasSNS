@@ -34,8 +34,8 @@ Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
 Route::get('/top','PostsController@index')->middleware('auth');
-Route::get('{id}/top','FollowsController@show')->middleware('auth');
-Route::get('{id}/top','UsersController@show')->middleware('auth');
+Route::get('/top','UsersController@followcount')->middleware('auth');
+Route::get('/top','UsersController@show')->middleware('auth');
 
 
 
