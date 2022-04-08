@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
+
+ public function show(){
+        $auths = Auth::user();
+        return view('posts.index', [ 'auths' => $auths ]);
+    }
 
 
     public function index() {
@@ -65,6 +71,7 @@ class UsersController extends Controller
             $follower->unfollow($user->id);
             return back();
         }
+
     }
 
 

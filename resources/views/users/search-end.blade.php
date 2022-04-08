@@ -31,7 +31,29 @@
 
 @foreach($users as $user)
   <tr>
-    <td><img src= {{$user->images}} ></td><td>{{$user->username}}</td><td>{{ Form::submit('フォローする',['class' => 'button']) }}</td><td>{{ Form::submit('フォローを外す',['class' => 'button']) }}</td>
+    <td><img src= {{$user->images}} ></td><td>{{$user->username}}</td>
+
+    <!-- <td>{{ Form::submit('フォローする',['class' => 'button']) }}</td><td>{{ Form::submit('フォローを外す',['class' => 'button']) }}</td> -->
+
+<div class="d-flex justify-content-end flex-grow-1">
+@if (auth()->user()->isFollowing($user->id))
+<form action="{{ route('unfollow', ['id' => $user->id]) }}" method="POST">
+{{ csrf_field() }}
+{{ method_field('DELETE') }}
+
+<button type="submit" class="btn btn-danger">フォロー解除</button>
+</form>
+@else
+<form action="{{ route('follow', ['id' => $user->id]) }}" method="POST">
+  <!-- <input type=hidden name="id"> -->
+{{ csrf_field() }}
+
+<button type="submit" class="btn btn-primary">フォローする</button>
+</form>
+@endif
+</div>
+
+
   </tr>
 @endforeach
 </table>

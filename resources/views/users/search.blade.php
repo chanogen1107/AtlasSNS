@@ -48,7 +48,6 @@
 @endif
 </div>
 
- <!-- followが未定義メソッドだって言われる -->
 
   </tr>
 @endforeach
