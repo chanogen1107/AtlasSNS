@@ -8,13 +8,10 @@
 <div class =search>
 <div class =search-form>
     <input type="text" class="form-control col-md-5" placeholder="ユーザー名" name="username">
-      <!-- {{ Form::label('') }}
-      {{ Form::text('search',null,['class' => 'search-input']) }} -->
+
     </div>
      <div class =search-button>
          <button type="submit" class="btn btn-primary col-md-5">検索</button>
-
-  <!-- {{ Form::submit('',['class' => 'button']) }} -->
 </div>
 </div>
 </form>
@@ -23,13 +20,13 @@
 @endif
 <div style="margin-top:50px;">
 <h1>ユーザー一覧</h1>
-<table class="table">
+<!-- <table class="table"> -->
 @foreach($users as $user)
-  <tr>
+  <!-- <tr> -->
     <td><img src= {{$user->images}} ></td><td>{{$user->username}}</td>
+  <!-- </tr> -->
 
-    <!-- <td>{{ Form::submit('フォローする',['class' => 'button']) }}</td><td>{{ Form::submit('フォローを外す',['class' => 'button']) }}</td> -->
-
+  <!-- <tr> -->
 <div class="d-flex justify-content-end flex-grow-1">
 @if (auth()->user()->isFollowing($user->id))
 <form action="{{ route('unfollow', ['id' => $user->id]) }}" method="POST">
@@ -49,9 +46,9 @@
 </div>
 
 
-  </tr>
+  <!-- </tr> -->
 @endforeach
-</table>
+<!-- </table> -->
 </div>
 
 

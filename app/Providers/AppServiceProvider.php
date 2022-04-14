@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Follow;
 
@@ -41,12 +42,18 @@ class AppServiceProvider extends ServiceProvider
         //     'follower_count' => $follower_count
         // ]);
 
-        $follow_count='フォロー数';
-        $follower_count='フォロワー数';
+
+        $login_id=Auth::user()->id;
+        $query = Follow::query();
+
+        $follow_count=$query->where('following_id',$login_id)->count();
+        $follower_count=$query->where('followed_id',$login_id)->count();
         $view->with([
         'follow_count'=>$follow_count,
         'follower_count'=>$follower_count,
-        ]);// controllerから渡すときの感じです
+        'login_id'=>$login_id,
+        ]);
+        // controllerから渡すときの感じです
     });
         //
     }

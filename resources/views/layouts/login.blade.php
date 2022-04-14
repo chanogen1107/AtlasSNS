@@ -1,8 +1,8 @@
-@if(isset($follow_count))
-    <p>{{$follow_count}}</p>
+<!-- @if(isset($login_id))
+    <p>{{$login_id}}</p>
 @else
     <p>メッセージは存在しません。</p>
-@endif
+@endif -->
 <!DOCTYPE html>
 <html>
 <head>
