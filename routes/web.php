@@ -43,17 +43,16 @@ Route::get('/delete/{id}','PostsController@delete')->middleware('auth');
 
 Route::get('/profile','UsersController@profile')->middleware('auth');
 
-// Route::post('/search','UsersController@search')->middleware('auth');
 Route::get('/search','UsersController@index')->middleware('auth');
 
 
 Route::post('users/{id}/follow', 'UsersController@follow')->name('follow');
-    Route::delete('users/{id}/unfollow', 'UsersController@unfollow')->name('unfollow');
+Route::delete('users/{id}/unfollow', 'UsersController@unfollow')->name('unfollow');
 ;
 
-Route::get('/follow-list','PostsController@index')->middleware('auth');
+Route::get('/follow-list','FollowsController@followList')->middleware('auth');
 ;
-Route::get('/follower-list','PostsController@index')->middleware('auth');
+Route::get('/follower-list','FollowsController@followerList')->middleware('auth');
 ;
 
 Route::get('/logout', 'Auth\LoginController@logout')->middleware('auth');

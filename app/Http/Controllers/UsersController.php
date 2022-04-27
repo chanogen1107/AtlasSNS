@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
+  public function profile() {
+    $user = Auth::user();
+    return view('users.profile', ['user' => $user]);
+}
 
  public function show(){
         $auths = Auth::user();
@@ -55,9 +59,7 @@ class UsersController extends Controller
 
     }
 
-    public function profile(){
-        return view('users.profile');
-    }
+
     public function search(Request $request){
         $keyword_name = $request->username;
         // dd($keyword_name);

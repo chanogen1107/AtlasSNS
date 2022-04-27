@@ -74,23 +74,36 @@ h1{
     border-left: 1px solid #727272;
 }
 
-.tweet{
-       display: flex;
+.tweet-form{
+    display: flex;
     flex-wrap: nowrap;
-    justify-content: center;
-    margin-top: 10px;
+    justify-content: left;
+    border: none;
+	border-bottom: 10px solid #dddddd;
+
+
 }
 
-.tweet-form{
-    width: 70%;
-    max-height: 100px;
-    margin-left: 10px;
-    margin-right: 10px;
+.focus_line{
+    border: none;
+	border-bottom: 10px solid #1b2538;
+
+}
+
+.tweet-icon{
+    margin-left: 100px;
 }
 
 .tweet-input{
-    width: 100%;
-    height: 100px;
+    width: 750px;
+    height: 120px;
+    margin-left: 20px;
+    text-align: center;
+    border: none;
+}
+
+.tweet-button{
+    width: 80px;
 }
 
 /* search area */

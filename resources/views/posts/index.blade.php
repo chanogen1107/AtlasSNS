@@ -2,26 +2,23 @@
 
 @section('content')
 
-@if(isset($id))
+<!-- @if(isset($id))
 <p>$id</p>
 @else
 <p>メッセージは存在しません。</p>
-@endif
+@endif -->
 
-<div class =tweet>
-<img src="images/arrow.png">
 <div class =tweet-form>
-<form method="POST" action="/top" enctype="multipart/form-data">
-@csrf
-      {{ Form::text('post',null,['class' => 'tweet-input']) }}
-    </div>
-     <div class =tweet-button>
-     <input type="image" src="../images/post.png" alt="送信する" height="25%">
-</div>
-@if($errors->first('post'))
-  <p>※{{$errors->first('post')}}</p>
-@endif
-</form>
+  <img src="images/arrow.png" class = tweet-icon>
+  <form method="POST" action="/top" enctype="multipart/form-data">
+      @csrf
+      <input type = "text" placeholder = "ユーザー名"  name = post class = tweet-input>
+      <input type = "image" src = "../images/post.png" alt = "送信する" class =tweet-button>
+      <span class="focus_line"></span>
+    @if($errors->first('post'))
+    <p>※{{$errors->first('post')}}</p>
+    @endif
+  </form>
 </div>
 
 <!-- ツイート表示 -->
