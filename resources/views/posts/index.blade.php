@@ -2,8 +2,8 @@
 
 @section('content')
 
-@if(isset($post))
-<p>$post</p>
+@if(isset($id))
+<p>$id</p>
 @else
 <p>メッセージは存在しません。</p>
 @endif
@@ -16,7 +16,7 @@
       {{ Form::text('post',null,['class' => 'tweet-input']) }}
     </div>
      <div class =tweet-button>
-  {{ Form::submit('投稿',['class' => 'button']) }}
+     <input type="image" src="../images/post.png" alt="送信する" height="25%">
 </div>
 @if($errors->first('post'))
   <p>※{{$errors->first('post')}}</p>
@@ -31,10 +31,23 @@
                   <p>{{$post->user_id}}</p>
                   <p>{{$post->post}}</p>
                   <p>{{$post->created_at}}</p>
-                  <a href="/top">編集</a>
-                  <a href="/top">削除</a>
+                  <label class="js-modal-open" post="{{ $post->post }}" post_id="{{ $post->id }}">編集</label>
+                  <a href="/delete/{{$post->id}}" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">削除</a>
                 </div>
                 @endforeach
+
+                <div class="modal js-modal">
+        <div class="modal__bg js-modal-close"></div>
+        <div class="modal__content">
+           <form action="/edit" method="POST">
+                <input type="hidden" name="id" class="modal_id" value="PUT">
+                <textarea name="upPost" class="modal_post"></textarea>
+                <input type="submit" value="更新">
+                {{ csrf_field() }}
+           </form>
+           <a class="js-modal-close" href="">閉じる</a>
+        </div>
+    </div>
             </div>
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Follow;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
@@ -12,8 +13,8 @@ class PostsController extends Controller
 {
     //
     public function index(){
-
-        $posts = Post::latest()->get();  // <--- 追加
+        $id=Auth::user()->id;
+        $posts = Post::query()->whereIn('user_id', Auth::user()->follows()->pluck('followed_id'))->orWhere('user_id', Auth::user()->id)->latest()->get();
         return view('posts.index', compact('posts'));
     }
 
@@ -29,6 +30,33 @@ class PostsController extends Controller
         ]);
         return back(); // リクエスト送ったページに戻る（つまり、/timelineにリダイレクトする）
     }
+
+    public function edit(Request $request)
+    {
+        $validator = $request->validate([
+            'post' => ['required', 'string', 'max:140'],
+        ]);
+          $id = $request->input('id');
+          $up_post = $request->input('upPost');
+          Post::query()
+          ->where('id', $id)
+          ->update(
+            ['post' => $up_post]
+          );
+
+          return redirect('/top');
+    }
+
+    public function delete($id)
+    {
+        Post::query()
+        ->where('id', $id)
+        ->delete();
+
+        return redirect('/top');
+    }
+
+
 
 
 }

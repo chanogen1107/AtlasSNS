@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form action="{{ url('search-end')}}" method="post">
+<form action="/search" method="get">
   {{ csrf_field()}}
   {{method_field('get')}}
 <div class =search>
@@ -13,6 +13,10 @@
      <div class =search-button>
          <button type="submit" class="btn btn-primary col-md-5">検索</button>
 </div>
+
+@if(!empty($message))
+<div class="alert alert-primary" role="alert">{{ $message}}</div>
+@endif
 </div>
 </form>
 @if(session('flash_message'))

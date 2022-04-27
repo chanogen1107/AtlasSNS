@@ -44,10 +44,9 @@ class AppServiceProvider extends ServiceProvider
 
 
         $login_id=Auth::user()->id;
-        $query = Follow::query();
 
-        $follow_count=$query->where('following_id',$login_id)->count();
-        $follower_count=$query->where('followed_id',$login_id)->count();
+        $follow_count=Follow::query()->where('following_id',$login_id)->count();
+        $follower_count=Follow::query()->where('followed_id',$login_id)->count();
         $view->with([
         'follow_count'=>$follow_count,
         'follower_count'=>$follower_count,

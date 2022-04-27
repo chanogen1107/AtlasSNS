@@ -16,24 +16,60 @@ class UsersController extends Controller
     }
 
 
-    public function index() {
+    // public function index() {
 
-        $users = User::all();
-        return view('users.search')->with('users', $users);
-      }
+    //     $users = User::all();
+    //     return view('users.search')->with('users', $users);
+    //   }
+
+    public function index(Request $request) {
+
+      $keyword_name = $request->input('username');
+      // dd($keyword_name);
+      $query = User::query();
+
+      if(!empty($keyword_name)) {
+
+        $users = $query->where('username','like', '%' .$keyword_name. '%')->get();
+        $message = "検索ワード：". $keyword_name."";
+
+        return view('users.search')
+        ->with([
+          'users' => $users,
+          'message' => $message,
+        ]
+      );
+         }else if(empty($users)){
+
+          $users = User::all();
+          // $message = "検索結果はありません。";
+          return view('users.search')->with([
+            'users' => $users,
+            // 'message' => $message,
+          ]
+        );
+         }else{
+          $users = User::all();
+          return view('users.search')->with('users', $users);
+         }
+
+    }
 
     public function profile(){
         return view('users.profile');
     }
     public function search(Request $request){
         $keyword_name = $request->username;
+        // dd($keyword_name);
 //カラム（列）がないよってよ=nameじゃなくてusernameだった。
         if(!empty($keyword_name)) {
-      $query = User::query();
-      $users = $query->where('username','like', '%' .$keyword_name. '%')->get();
+      // $query = User::query();
+      $users = User::query()->where('username','like', '%' .$keyword_name. '%')->get();
+      // dd($users);
       $message = "検索ワード：". $keyword_name."";
+      dd($message);
       //viewが見当たらねえってよ=users.入れてないからだった
-      return view('users.search-end')
+      return redirect('/search')
       ->with([
         'users' => $users,
         'message' => $message,
@@ -41,9 +77,16 @@ class UsersController extends Controller
     );
 
     } else {
+      $users = User::all();
+      // return view('users.search')->with('users', $users);
       $message = "検索結果はありません。";
-      return view('users.search-end')->with('message',$message);
-      }
+      // dd($message);
+      // return view('users.search-end')->with('message',$message);
+      return back()
+      ->with([
+        'users' => $users,
+        'message' => $message,
+      ]);}
     }
 
     // フォロー
