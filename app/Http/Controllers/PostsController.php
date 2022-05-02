@@ -33,9 +33,9 @@ class PostsController extends Controller
 
     public function edit(Request $request)
     {
-        $validator = $request->validate([
-            'post' => ['required', 'string', 'max:140'],
-        ]);
+        // $validator = $request->validate([
+        //     'post' => ['required', 'string', 'max:140'],
+        // ]);
           $id = $request->input('id');
           $up_post = $request->input('upPost');
           Post::query()

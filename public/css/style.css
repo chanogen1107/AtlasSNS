@@ -59,6 +59,39 @@ h1{
   color: #a9a9a9;
   padding: 1rem;
 }
+
+/* side ber */
+
+#side-bar{
+ max-width: 90%;
+}
+
+.follow{
+    display: flex;
+}
+
+.lavel{
+    margin-right: 50px;
+
+}
+
+.f{
+    text-align: center;
+}
+
+.btn{
+    color: #ffffff;
+    background-color: #3f59eb;
+    border-radius: 5px;
+    width: 40%;
+    height: 40px;
+    padding: 2px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+}
+
 /* main content */
 
 
@@ -67,10 +100,10 @@ h1{
     flex-flow: row wrap;
 }
 #container{
-    flex: 0 0 80%;
+    flex: 0 0 79%;
 }
 #side-bar{
-    flex: 0 0 19%;
+    flex: 0 0 20%;
     border-left: 1px solid #727272;
 }
 
@@ -104,6 +137,46 @@ h1{
 
 .tweet-button{
     width: 80px;
+}
+
+.posts{
+    border-bottom: 2px solid #d1d1d1;
+}
+
+.post-box{
+    display: flex;
+    flex-wrap: nowrap;
+    margin-left: 175px;
+}
+
+.post-created_at{
+    text-align: right;
+}
+
+.n-c-box{
+    /* display: flex; */
+    flex-wrap: nowrap;
+    /* text-align: right; */
+}
+
+.post-post{
+    max-width: 700px;
+}
+
+.u-d-box{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: right;
+}
+
+.js-modal-open{
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.post-trash{
+    max-width: 50px;
+    max-height: 50px;
 }
 
 /* search area */
