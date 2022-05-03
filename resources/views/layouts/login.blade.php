@@ -40,7 +40,7 @@
                 <a href="/top">HOME</a>
               </li>
               <li class="submenu__item">
-                <a href="/profile">プロフィール編集</a>
+                <a href="/profile/{{ Auth::user()->id }}">プロフィール編集</a>
               </li>
                 <li class="submenu__item">
                     <a href="/logout">ログアウト</a>

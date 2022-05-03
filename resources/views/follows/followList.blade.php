@@ -4,7 +4,7 @@
 
 @foreach($followingImages as $followingImage)
                 <div>
-                <img src="{{ asset('storage/profiles/'.$followingImage->image) }}" alt="プロフィール画像">
+                <a href="/profile/{{$followingImage->id}}"><img src="{{ asset('storage/profiles/'.$followingImage->image) }}" ></a>
                 </div>
 @endforeach
 @foreach($followingPosts as $followingPost)

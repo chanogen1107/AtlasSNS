@@ -41,7 +41,7 @@ Route::get('/delete/{id}','PostsController@delete')->middleware('auth');
 
 
 
-Route::get('/profile','UsersController@profile')->middleware('auth');
+Route::get('/profile/{id}','UsersController@profile')->middleware('auth');
 
 Route::get('/search','UsersController@index')->middleware('auth');
 

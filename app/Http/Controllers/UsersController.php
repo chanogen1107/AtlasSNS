@@ -9,9 +9,14 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-  public function profile() {
+  public function profile($id) {
     $user = Auth::user();
-    return view('users.profile', ['user' => $user]);
+    $username = User::find($id);
+    return view('users.profile')
+    ->with(
+      ['username' => $username,
+      'user' => $user]
+    );
 }
 
  public function show(){
@@ -119,6 +124,7 @@ class UsersController extends Controller
         }
 
     }
+
 
 
 }

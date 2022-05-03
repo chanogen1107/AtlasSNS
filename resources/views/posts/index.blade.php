@@ -29,17 +29,16 @@
                     <img src="{{ asset('storage/profiles/'.$post->image) }}">
                     <div post-content>
                       <div class=n-c-box>
-                        <p class=post-name>{{$post->user_id}}</p>
+                        <p class=post-name>{{ $post->User->username }}</p>
                         <p class=post-created_at>{{$post->created_at}}</p>
                       </div>
                         <p class=post-post>{{$post->post}}</p>
                       </div>
                     </div>
-                    
+
                   <div class=u-d-box>
                   <input type = "image" src = "../images/edit.png" post="{{ $post->post }}" post_id="{{ $post->id }}" alt = "編集" class =js-modal-open>
-                  <input type = "image" src = "../images/trash-h.png" action="/delete/{{$post->id}}" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')" alt = "削除" class =post-trash>
-                    <a href="/delete/{{$post->id}}" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">削除</a>
+                  <a href = "/delete/{{$post->id}}"><input type = "image" src = "../images/trash-h.png" action="/delete/{{$post->id}}" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')" alt = "削除" class =post-trash></a>
                   </div>
                 </div>
                 @endforeach
