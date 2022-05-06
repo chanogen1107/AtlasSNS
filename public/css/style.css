@@ -60,23 +60,32 @@ h1{
   padding: 1rem;
 }
 
+a:visited{
+    color: #fff;
+}
 /* side ber */
 
 #side-bar{
  max-width: 90%;
 }
 
+.name{
+    margin-top: 25px;
+    margin-left: 20px;
+    font-size:15px;
+}
+
 .follow{
     display: flex;
+    font-size:15px;
+    margin-top: 25px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .lavel{
-    margin-right: 50px;
-
-}
-
-.f{
-    text-align: center;
+    font-size:15px;
+    margin-right: 20px;
 }
 
 .btn{
@@ -92,6 +101,41 @@ h1{
     appearance: none;
 }
 
+#confirm{
+    border-bottom: 1px solid #c5c5c5;
+}
+
+.follow-btn{
+    margin-top: 25px;
+    margin-left: auto;
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.f{
+    margin-bottom: 25px;
+    font-size:15px;
+    display: inline;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.search-btn{
+    margin-top: 25px;
+    margin-left: auto;
+    text-align: center;
+
+}
+
+.s{
+    margin-bottom: 25px;
+    font-size:15px;
+    display: inline;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
 /* main content */
 
 
