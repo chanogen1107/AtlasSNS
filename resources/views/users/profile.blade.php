@@ -23,6 +23,18 @@
 @endif
 </div>
 
-
-
+@foreach($posts as $post)
+                <div class=posts>
+                    <div class=post-box>
+                        <img src="{{ asset('storage/profiles/'.$post->image) }}">
+                        <div post-content>
+                            <div class=n-c-box>
+                                <p class=post-name>{{ $post->User->username }}</p>
+                                <p class=post-created_at>{{$post->created_at}}</p>
+                            </div>
+                            <p class=post-post>{{$post->post}}</p>
+                        </div>
+                    </div>
+                </div>
+@endforeach
 @endsection

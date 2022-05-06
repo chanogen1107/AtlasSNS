@@ -13,10 +13,12 @@ class UsersController extends Controller
   public function profile($id) {
     $user = Auth::user();
     $username = User::find($id);
+    $posts = Post::query()->where('user_id', $id)->latest()->get();
     return view('users.profile')
     ->with(
       ['username' => $username,
-      'user' => $user]
+      'user' => $user,
+      'posts' => $posts]
     );
 }
 
