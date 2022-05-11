@@ -18,7 +18,7 @@
             <div class="pt-2">
                 <p class="h3 border-bottom border-secondary pb-3">プロフィール編集</p>
             </div>
-            {!! Form::open(['route' => ['profile_edit'], 'method' => 'PUT']) !!}
+            {!! Form::open(['url' => '/profile', 'method' => 'put']) !!}
             {!! Form::hidden('id',$user->id) !!}
             <div class="m-3">
                 <div class="form-group pt-1">
@@ -31,26 +31,26 @@
                     {{Form::email('email', $user->mail, ['class' => 'form-control', 'id' =>'email'])}}
                     <span class="text-danger">{{$errors->first('email')}}</span>
                 </div>
-                <div class="form-group pt-3">
+                <!-- <div class="form-group pt-3">
                     {{Form::label('password','password')}}
                     {{Form::password('password', ['class' => 'form-control', 'id' =>'password'])}}
                     <span class="text-danger">{{$errors->first('password')}}</span>
-                </div>
-                <div class="form-group pt-4">
+                </div> -->
+                <!-- <div class="form-group pt-4">
                     {{Form::label('password-confirm','password-confirm')}}
                     {{Form::password('password-confirm', ['class' => 'form-control', 'id' =>'password-confirm'])}}
                     <span class="text-danger">{{$errors->first('password-confirm')}}</span>
-                </div>
+                </div> -->
                 <div class="form-group pt-5">
                     {{Form::label('bio','bio')}}
                     {{Form::text('bio', $user->bio, ['class' => 'form-control', 'id' =>'bio'])}}
                     <span class="text-danger">{{$errors->first('bio')}}</span>
                 </div>
-                 <div class="form-group pt-6">
+                 <!-- <div class="form-group pt-6">
                     {{Form::label('image','image')}}
                     {{Form::email('image', $user->images, ['class' => 'form-control', 'id' =>'image'])}}
                     <span class="text-danger">{{$errors->first('image')}}</span>
-                </div>
+                </div> -->
                 <div class="form-group pull-right">
                     {{Form::submit(' 更新する ', ['class'=>'btn btn-success rounded-pill'])}}
                 </div>

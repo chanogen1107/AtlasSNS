@@ -43,7 +43,7 @@ Route::get('/delete/{id}','PostsController@delete')->middleware('auth');
 
 Route::get('/profile/{id}','UsersController@profile')->middleware('auth');
 //プロフィール編集
-Route::put('/profile', 'UserController@profileUpdate')->name('profile_edit');
+Route::put('/profile', 'UsersController@profileUpdate')->middleware('auth');
 
 
 

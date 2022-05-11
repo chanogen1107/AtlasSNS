@@ -22,6 +22,22 @@ class UsersController extends Controller
     );
 }
 
+public function profileUpdate(Request $request, User $user)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' =>'required|string|email|max:255'
+        ]);
+            $user = Auth::user();
+            $user->username = $request->input('name');
+            $user->mail = $request->input('email');
+            $user->bio = $request->input('bio');
+            $user->save();
+
+        return redirect('/top');
+    }
+
+
  public function show(){
         $auths = Auth::user();
         return view('posts.index')->with('auths',$auths);
