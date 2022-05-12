@@ -26,15 +26,38 @@ public function profileUpdate(Request $request, User $user)
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' =>'required|string|email|max:255'
+            'email' =>'required|string|email|max:255',
+            'password' => 'required|string|min:6|confirmed|regex:/\A([a-zA-Z0-9]{8,})+\z/u',
+            'password_confirmation' =>'required|regex:/\A([a-zA-Z0-9]{8,})+\z/u',
+            'bio' =>'max:150',
+            'images' =>'regex:._/\A([a-zA-Z0-9]{8,})+\z/u'
         ]);
             $user = Auth::user();
             $user->username = $request->input('name');
             $user->mail = $request->input('email');
+            $user->password = bcrypt($request->input('password'));
             $user->bio = $request->input('bio');
+
+
             $user->save();
 
         return redirect('/top');
+    }
+
+// ファイルを保存するための処理
+    private function saveProfileImage($image, $id) {
+        // get instance
+        $img = \Image::make($image);
+        // resize
+        $img->fit(100, 100, function($constraint){
+            $constraint->upsize();
+        });
+        // save
+        $file_name = 'profile_'.$id.'.'.$image->getClientOriginalExtension();
+        $save_path = 'public/profiles/'.$file_name;
+        Storage::put($save_path, (string) $img->encode());
+        // return file name
+        return $file_name;
     }
 
 

@@ -18,7 +18,7 @@
             <div class="pt-2">
                 <p class="h3 border-bottom border-secondary pb-3">プロフィール編集</p>
             </div>
-            {!! Form::open(['url' => '/profile', 'method' => 'put']) !!}
+            {!! Form::open(['url' => '/profile', 'method' => 'put', 'enctype' => 'multipart/form-data']) !!}
             {!! Form::hidden('id',$user->id) !!}
             <div class="m-3">
                 <div class="form-group pt-1">
@@ -31,21 +31,31 @@
                     {{Form::email('email', $user->mail, ['class' => 'form-control', 'id' =>'email'])}}
                     <span class="text-danger">{{$errors->first('email')}}</span>
                 </div>
-                <!-- <div class="form-group pt-3">
+                <div class="form-group pt-3">
                     {{Form::label('password','password')}}
                     {{Form::password('password', ['class' => 'form-control', 'id' =>'password'])}}
                     <span class="text-danger">{{$errors->first('password')}}</span>
-                </div> -->
-                <!-- <div class="form-group pt-4">
-                    {{Form::label('password-confirm','password-confirm')}}
-                    {{Form::password('password-confirm', ['class' => 'form-control', 'id' =>'password-confirm'])}}
-                    <span class="text-danger">{{$errors->first('password-confirm')}}</span>
-                </div> -->
+                </div>
+                <div class="form-group pt-4">
+                    {{Form::label('password_confirmation','password_confirmation')}}
+                    {{Form::password('password_confirmation', ['class' => 'form-control', 'id' =>'password_confirmation'])}}
+                    <span class="text-danger">{{$errors->first('password_confirmation')}}</span>
+                </div>
                 <div class="form-group pt-5">
                     {{Form::label('bio','bio')}}
                     {{Form::text('bio', $user->bio, ['class' => 'form-control', 'id' =>'bio'])}}
                     <span class="text-danger">{{$errors->first('bio')}}</span>
                 </div>
+                <!-- <form method="put" action="/profile" enctype="multipart/form-data"> -->
+
+                    <label for="profile_image">image</label>
+
+                    <label for="profile_image" class="btn">
+                    <!-- <img src="{{ asset('storage/profiles/'.$user->images) }}" id="img"> -->
+                    <input id="images" type="file"  name="images" onchange="previewImage(this);">
+                    </label>
+
+                    <!-- </form> -->
                  <!-- <div class="form-group pt-6">
                     {{Form::label('image','image')}}
                     {{Form::email('image', $user->images, ['class' => 'form-control', 'id' =>'image'])}}
