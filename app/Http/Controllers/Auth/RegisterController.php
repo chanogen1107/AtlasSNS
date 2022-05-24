@@ -54,7 +54,7 @@ class RegisterController extends Controller
         [
             'username' => 'required|min:2|max:12',
             'mail' => 'required|email|min:5|max:40|unique:users',
-            'password' => 'required|min:8|max:20|confirmed|string',
+            'password' => 'required|min:8|max:20|confirmed|string|regex:/\A([a-zA-Z0-9]{8,})+\z/u',
             'password_confirmation' =>'required'
         ],
         [
@@ -71,7 +71,8 @@ class RegisterController extends Controller
             'password.max' => 'パスワードは8文字以上、20文字以下で入力してください',
             'password.confirmed' => '確認パスワードが一致していません',
             'password_confirmation.required' => '確認パスワードを入力してください',
-            'password.alpha_num' => 'パスワードは半角英数字で入力してください',
+            'password.regex' => 'パスワードは半角英数字で入力してください'
+
 
 // 半角英数字NGのやり方。
         ]);

@@ -2,11 +2,11 @@
 
 @section('content')
 
-@if(isset($username))
+<!-- @if(isset($username))
 <p>{{$username->id}}</p>
 @else
 <p>メッセージは存在しません。</p>
-@endif
+@endif -->
 
 @if($username->id == auth()->user()->id)
 
@@ -72,32 +72,33 @@
 @else
 
 <!-- 他ユーザーのblade -->
+<div class = profile-follow-wrapper>
+    <img src="{{ asset('storage/images/'.$username->images) }}" alt="プロフィール画像" class = "icon">
+    <p>{{$username -> username}}さん</p>
+    <p>{{$username -> bio}}</p>
+    <div class="d-flex justify-content-end flex-grow-1">
+        @if (auth()->user()->isFollowing($username->id))
+        <form action="{{ route('unfollow', ['id' => $username->id]) }}" method="POST">
+            {{ csrf_field() }}
+            {{ method_field('DELETE') }}
 
-<img src="{{ asset('storage/profiles/'.$username->images) }}" alt="プロフィール画像">
-<p>{{$username -> username}}さん</p>
-<p>{{$username -> bio}}</p>
-<div class="d-flex justify-content-end flex-grow-1">
-@if (auth()->user()->isFollowing($username->id))
-<form action="{{ route('unfollow', ['id' => $username->id]) }}" method="POST">
-{{ csrf_field() }}
-{{ method_field('DELETE') }}
+            <button type="submit" class="btn btn-danger">フォロー解除</button>
+        </form>
+        @else
+        <form action="{{ route('follow', ['id' => $username->id]) }}" method="POST">
+            <!-- <input type=hidden name="id"> -->
+            {{ csrf_field() }}
 
-<button type="submit" class="btn btn-danger">フォロー解除</button>
-</form>
-@else
-<form action="{{ route('follow', ['id' => $username->id]) }}" method="POST">
-  <!-- <input type=hidden name="id"> -->
-{{ csrf_field() }}
-
-<button type="submit" class="btn btn-primary">フォローする</button>
-</form>
-@endif
+            <button type="submit" class="btn btn-primary">フォローする</button>
+        </form>
+        @endif
+    </div>
 </div>
 
 @foreach($posts as $post)
                 <div class=posts>
                     <div class=post-box>
-                        <img src="{{ asset('storage/profiles/'.$post->image) }}">
+                        <img src="{{ asset('storage/images/'.$post->User->images) }}" class = "icon">
                         <div post-content>
                             <div class=n-c-box>
                                 <p class=post-name>{{ $post->User->username }}</p>

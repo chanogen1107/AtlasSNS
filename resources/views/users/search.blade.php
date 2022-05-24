@@ -2,21 +2,20 @@
 
 @section('content')
 
-<form action="/search" method="get">
+<form action="/search" method="get" >
   {{ csrf_field()}}
   {{method_field('get')}}
 <div class =search>
-<div class =search-form>
-    <input type="text" class="form-control col-md-5" placeholder="ユーザー名" name="username">
+  <div class =search-form>
+    <input type="text" class="search-form-box" placeholder="ユーザー名" name="username">
+    <button type="submit" class="btn search-button-deghin">検索</button>
 
-    </div>
-     <div class =search-button>
-         <button type="submit" class="btn btn-primary col-md-5">検索</button>
-</div>
+
 
 @if(!empty($message))
-<div class="alert alert-primary" role="alert">{{ $message}}</div>
+    <div class="alert alert-primary" role="alert">{{ $message}}</div>
 @endif
+</div>
 </div>
 </form>
 @if(session('flash_message'))
@@ -25,13 +24,18 @@
 <div style="margin-top:50px;">
 <h1>ユーザー一覧</h1>
 <!-- <table class="table"> -->
+
 @foreach($users as $user)
   <!-- <tr> -->
-    <td><img src= {{$user->images}} ></td><td>{{$user->username}}</td>
+
+  @if($user->id != Auth()->user()->id)
+   <div class = search-list>
+    <td><img src= "{{ asset('storage/images/'.$user->images) }}" class = "icon" ></td><td>{{$user->username}}</td>
   <!-- </tr> -->
 
+
   <!-- <tr> -->
-<div class="d-flex justify-content-end flex-grow-1">
+<div class="search-list-btn">
 @if (auth()->user()->isFollowing($user->id))
 <form action="{{ route('unfollow', ['id' => $user->id]) }}" method="POST">
 {{ csrf_field() }}
@@ -49,9 +53,11 @@
 @endif
 </div>
 
-
+</div>
+@endif
   <!-- </tr> -->
 @endforeach
+
 <!-- </table> -->
 </div>
 

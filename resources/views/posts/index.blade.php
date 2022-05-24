@@ -8,8 +8,9 @@
 <p>メッセージは存在しません。</p>
 @endif -->
 
+<div class = tweet>
 <div class =tweet-form>
-  <img src="images/arrow.png" class = tweet-icon>
+<img src="{{ asset('storage/images/'.Auth::user()->images) }}" class = icon>
   <form method="POST" action="/top" enctype="multipart/form-data">
       @csrf
       <input type = "text" placeholder = "ユーザー名"  name = post class = tweet-input>
@@ -20,14 +21,15 @@
     @endif
   </form>
 </div>
+</div>
 
 <!-- ツイート表示 -->
 <div class="post-wrapper">
                 @foreach($posts as $post)
                 <div class=posts>
                     <div class=post-box>
-                    <img src="{{ asset('storage/profiles/'.$post->image) }}">
-                    <div post-content>
+                    <img src="{{ asset('storage/images/'.$post->User->images) }}" class = "icon">
+                    <div class=post-content>
                       <div class=n-c-box>
                         <p class=post-name>{{ $post->User->username }}</p>
                         <p class=post-created_at>{{$post->created_at}}</p>
@@ -37,10 +39,13 @@
                     </div>
 
                   <div class=u-d-box>
+                    @if($post->user_id == Auth()->user()->id)
                   <input type = "image" src = "../images/edit.png" post="{{ $post->post }}" post_id="{{ $post->id }}" alt = "編集" class =js-modal-open>
                   <a href = "/delete/{{$post->id}}"><input type = "image" src = "../images/trash-h.png" action="/delete/{{$post->id}}" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')" alt = "削除" class =post-trash></a>
-                  </div>
+                  @endif
                 </div>
+                </div>
+
                 @endforeach
 
                 <div class="modal js-modal">

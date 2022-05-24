@@ -25,18 +25,24 @@ class UsersController extends Controller
 public function profileUpdate(Request $request, User $user)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' =>'required|string|email|max:255',
-            'password' => 'required|string|min:6|confirmed|regex:/\A([a-zA-Z0-9]{8,})+\z/u',
-            'password_confirmation' =>'required|regex:/\A([a-zA-Z0-9]{8,})+\z/u',
+            'name' => 'required|string|min:2|max:12',
+            'email' =>'required|string|email|min:5|max:40|unique:users,mail,'.$request -> id.',id',
+            'password' => 'required|string|min:8|max:20|confirmed|regex:/\A([a-zA-Z0-9]{8,})+\z/u',
+            'password_confirmation' =>'required|min:8|max:20|regex:/\A([a-zA-Z0-9]{8,})+\z/u',
             'bio' =>'max:150',
-            'images' =>'regex:._/\A([a-zA-Z0-9]{8,})+\z/u'
+            'images' =>'mimes:jpeg,png,jpg,pdf'
         ]);
             $user = Auth::user();
             $user->username = $request->input('name');
             $user->mail = $request->input('email');
             $user->password = bcrypt($request->input('password'));
             $user->bio = $request->input('bio');
+            if(!empty($request ->images)) {
+            // name属性が'thumbnail'のinputタグをファイル形式に、画像をpublic/avatarに保存
+            $image_path = $request->file('images')->store('public/images/');
+            // 上記処理にて保存した画像に名前を付け、userテーブルのthumbnailカラムに、格納
+            $user->images = basename($image_path);}
+
 
 
             $user->save();

@@ -34,7 +34,8 @@
       <ul class="menu">
         <li class="menu__item">
           <a class="menu__item__link js-menu__item__link" href="">
-          {{ Auth::user()->username }}さん<img src="images/arrow.png"></a>
+          {{ Auth::user()->username }}さん
+          <img src="{{ asset('storage/images/'.Auth::user()->images) }}" class = "icon"></a>
             <ul class="submenu">
               <li class="submenu__item">
                 <a href="/top">HOME</a>
