@@ -15,10 +15,6 @@ header{
     justify-content: center;
 }
 
-h1{
-
-    width: 30%;
-}
 
 .top_head_logo{
     width: 25%;
@@ -142,7 +138,7 @@ a:visited{
     text-align: center;
     vertical-align: middle;
 }
-/* main content */
+/* ツイート画面 */
 
 
 #row{
@@ -157,14 +153,12 @@ a:visited{
     border-left: 1px solid #727272;
 }
 
-
 .tweet{
     border-bottom: 10px solid #dddddd;
 }
 
 .tweet-form{
-    margin-top: 20px;
-    margin-left: 70px;
+    padding: 40px 0 0 90px;
     display: flex;
     flex-wrap: nowrap;
     justify-content: left;
@@ -172,24 +166,58 @@ a:visited{
 
 }
 
+.tweet-post-form{
+    display: flex;
+    flex-wrap: nowrap;
+}
+
 .tweet-input{
     width: 750px;
     height: 120px;
     margin-left: 20px;
-    margin-bottom: 100px;
     text-align: top;
     border: none;
 }
 
 .tweet-button{
-    width: 80px;
-    height: 80px;
-    margin-top: 100px;
-
+    width: 100px;
+    height: 100px;
+    padding: 50px 0 0 0;
 }
 
-.posts{
+
+.li{
+    list-style:none;
+    display:flex;
+    }
+
+.posts-list{
     border-bottom: 2px solid #d1d1d1;
+    padding: 10px 10px 10px 140px;
+}
+
+.post-created_at
+{
+width: 400px;
+padding:15px;
+}
+.post-content{
+        width:100%;
+        padding:15px;
+    }
+
+.post-content > div{
+        display:flex;
+        justify-content:space-between;
+    }
+
+.post-name{
+        margin-bottom:10px;
+      }
+
+.posts{
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 .post-box{
@@ -205,9 +233,8 @@ a:visited{
 }
 
 .n-c-box{
-    /* display: flex; */
+    display: flex;
     flex-wrap: nowrap;
-    /* text-align: right; */
 }
 
 .post-post{
@@ -230,47 +257,64 @@ a:visited{
     max-height: 50px;
 }
 
-/* search area */
+/* 検索エリア */
 
 .search{
     border-bottom: 10px solid #dddddd;
 }
 
 .search-form{
+    padding: 40px 0 40px 90px;
     display: flex;
     flex-wrap: nowrap;
     justify-content: left;
-    margin-left: 50px;
-    margin-top: 50px;
-    width: 30%;
-    max-height: 20px;
-    margin-right: 30px;
     }
-
-.search-input{
-        width: 100%;
-        height: 30px;
-    }
-
-.search-button{
-        height: 50px;
-}
 
 .search-list{
     display: flex;
 }
+.search-input{
 
-.search-form-box{
-    font-size: 20px;
+    width: 300px;
     height: 40px;
-    width: 280px;
+}
+
+.search-input-b{
+    padding: 0 20px 0 0;
+}
+.search-primary{
+    padding: 15px 0 0 215px;
+}
+.search-form-box{
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: 20px;
 
 }
 
-.search-button-deghin{
-    margin-left: 30px;
+.search-button{
     height: 50px;
     width: 50px;
+}
+
+.search-box{
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 15px 0 15px 340px;
+
+}
+
+.search-icon{
+    padding: 0 0 0 0;
+}
+
+.search-name{
+    padding: 15px 0 0 40px;
+}
+
+.search-follow-btn{
+    padding: 0 0 0 202px;
+    justify-content: left;
 }
 
 /*ツイート編集モーダル*/
@@ -304,9 +348,21 @@ a:visited{
 
 /* フォローリスト */
 
+.list{
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 10px 10px 10px 30px;
+    border-bottom: 10px solid #dddddd;
+}
+
+.list-title{
+    font-size: 25px;
+    padding: 13px 78px 0 63px;
+}
 .list-icon{
     display: inline;
     flex-wrap: nowrap;
+    padding: 0 0 0 10px;
 }
 .btn-danger{
     background-color: rgb(215, 52, 52);
@@ -316,4 +372,26 @@ a:visited{
 .btn-primary{
     background-color: rgb(100, 184, 237);
     width: 130px;
+}
+
+
+/* プロフィールエリア */
+
+.profile-follow-wrapper{
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 27px 10px 29px 113px;
+    border-bottom: 10px solid #dddddd;
+}
+
+.profile-follow-list{
+    padding: 0 0 0 10px;
+}
+
+.profile-name{
+    margin-bottom: 30px;
+}
+
+.follow-button{
+    padding: 35px 0 0 523px;
 }

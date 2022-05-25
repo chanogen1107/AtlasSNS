@@ -74,9 +74,11 @@
 <!-- 他ユーザーのblade -->
 <div class = profile-follow-wrapper>
     <img src="{{ asset('storage/images/'.$username->images) }}" alt="プロフィール画像" class = "icon">
-    <p>{{$username -> username}}さん</p>
-    <p>{{$username -> bio}}</p>
-    <div class="d-flex justify-content-end flex-grow-1">
+    <div class = profile-follow-list>
+        <div class=profile-name>name{{$username -> username}}さん</div>
+        <div class=profile-bio>bio{{$username -> bio}}</div>
+    </div>
+    <div class="follow-button">
         @if (auth()->user()->isFollowing($username->id))
         <form action="{{ route('unfollow', ['id' => $username->id]) }}" method="POST">
             {{ csrf_field() }}
@@ -95,20 +97,23 @@
     </div>
 </div>
 
-@foreach($posts as $post)
-                <div class=posts>
-                    <div class=post-box>
-                        <img src="{{ asset('storage/images/'.$post->User->images) }}" class = "icon">
-                        <div post-content>
-                            <div class=n-c-box>
-                                <p class=post-name>{{ $post->User->username }}</p>
-                                <p class=post-created_at>{{$post->created_at}}</p>
-                            </div>
-                            <p class=post-post>{{$post->post}}</p>
-                        </div>
+<div class="post-wrapper">
+                @foreach($posts as $post)
+                <ul>
+                  <li class = posts-list>
+                    <div class = posts>
+                    <figure><img src="{{ asset('storage/images/'.$post->User->images) }}" class = "icon"></figure>
+                    <div class=post-content>
+                        <div class=post-name>{{ $post->User->username }}</div>
+                        <div class=post-post>{{$post->post}}</div>
                     </div>
-                </div>
-@endforeach
+                        <div class=post-created_at>{{$post->created_at}}</div>
+                    </div>
+                    </li>
+                </ul>
+                @endforeach
+</div>
+
 
 
 @endif

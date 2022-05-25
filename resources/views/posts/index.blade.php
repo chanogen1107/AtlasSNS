@@ -11,11 +11,10 @@
 <div class = tweet>
 <div class =tweet-form>
 <img src="{{ asset('storage/images/'.Auth::user()->images) }}" class = icon>
-  <form method="POST" action="/top" enctype="multipart/form-data">
+  <form method="POST" action="/top" enctype="multipart/form-data" class = tweet-post-form>
       @csrf
-      <input type = "text" placeholder = "ユーザー名"  name = post class = tweet-input>
+      <input type = "text" placeholder = "投稿内容を入力してください"  name = post class = tweet-input>
       <input type = "image" src = "../images/post.png" alt = "送信する" class =tweet-button>
-      <span class="focus_line"></span>
     @if($errors->first('post'))
     <p>※{{$errors->first('post')}}</p>
     @endif
@@ -26,25 +25,25 @@
 <!-- ツイート表示 -->
 <div class="post-wrapper">
                 @foreach($posts as $post)
-                <div class=posts>
-                    <div class=post-box>
-                    <img src="{{ asset('storage/images/'.$post->User->images) }}" class = "icon">
+                <ul>
+                  <li class = posts-list>
+                    <div class = posts>
+                    <figure><img src="{{ asset('storage/images/'.$post->User->images) }}" class = "icon"></figure>
                     <div class=post-content>
-                      <div class=n-c-box>
-                        <p class=post-name>{{ $post->User->username }}</p>
-                        <p class=post-created_at>{{$post->created_at}}</p>
-                      </div>
-                        <p class=post-post>{{$post->post}}</p>
-                      </div>
+                        <div class=post-name>{{ $post->User->username }}</div>
+                        <div class=post-post>{{$post->post}}</div>
                     </div>
-
-                  <div class=u-d-box>
+                        <div class=post-created_at>{{$post->created_at}}</div>
+                    </div>
+                    <div class=u-d-box>
                     @if($post->user_id == Auth()->user()->id)
-                  <input type = "image" src = "../images/edit.png" post="{{ $post->post }}" post_id="{{ $post->id }}" alt = "編集" class =js-modal-open>
-                  <a href = "/delete/{{$post->id}}"><input type = "image" src = "../images/trash-h.png" action="/delete/{{$post->id}}" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')" alt = "削除" class =post-trash></a>
+                    <input type = "image" src = "../images/edit.png" post="{{ $post->post }}" post_id="{{ $post->id }}" alt = "編集" class =js-modal-open>
+                    <a href = "/delete/{{$post->id}}"><input type = "image" src = "../images/trash-h.png" action="/delete/{{$post->id}}" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')" alt = "削除" class =post-trash></a>
                   @endif
                 </div>
-                </div>
+                
+              </li>
+              </ul>
 
                 @endforeach
 
