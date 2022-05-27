@@ -8,7 +8,15 @@ $(function () {
   });
 });
 
-
+$(".post-trash").on("click", function () {
+  if ($(this).hasClass("change")) {
+    $(this).attr("src", "../images/trash.png");
+    $(this).toggleClass("change");
+  } else {
+    $(this).attr("src", "../images/trash-h.png");
+    $(this).toggleClass("change");
+  }
+});
 
 $(function(){
   // 編集ボタン(class="js-modal-open")が押されたら発火

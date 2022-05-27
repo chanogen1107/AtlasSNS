@@ -37,7 +37,7 @@
                     </div>
                     <div class=u-d-box>
                     @if($post->user_id == Auth()->user()->id)
-                    <input type = "image" src = "../images/edit.png" post="{{ $post->post }}" post_id="{{ $post->id }}" alt = "編集" class =js-modal-open>
+                    <div  class =post-update><input type = "image" src = "../images/edit.png" post="{{ $post->post }}" post_id="{{ $post->id }}" alt = "編集" class =js-modal-open ></div>
                     <a href = "/delete/{{$post->id}}"><input type = "image" src = "../images/trash-h.png" action="/delete/{{$post->id}}" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')" alt = "削除" class =post-trash></a>
                   @endif
                 </div>
@@ -53,7 +53,8 @@
            <form action="/edit" method="POST">
                 <input type="hidden" name="id" class="modal_id" value="PUT">
                 <textarea name="upPost" class="modal_post"></textarea>
-                <input type="submit" value="更新">
+                <input type = "image" src = "../images/edit.png" action="/edit" class="modal_btn">
+                <!-- <input type="submit" value="更新"> -->
                 {{ csrf_field() }}
            </form>
            <a class="js-modal-close" href="">閉じる</a>

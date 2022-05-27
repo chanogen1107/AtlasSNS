@@ -7,16 +7,16 @@ html{
 }
 
 body{
-    height: 100%;
     background:  linear-gradient(#0268C7, #4FAAFD,#FBE232);
 
 }
 
 #login{
-        display: flex;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 200px;
+    padding: 50px 0 0 0;
+    /* margin-top: 200px; */
 }
 /* ヘッダーエリア */
 .header{
@@ -27,37 +27,35 @@ body{
 }
 
 .head_logo{
-    width: 40%;
-    height: 40%;
+    /* width: 40%; */
+    height: 50px;
     /* size: 20ch; */
 
 
 }
 
 .head_text{
-    font-size: 3rem; /* ② */
-  margin-top: 5px; /* ③ */
-  margin-bottom: 5px; /* ③ */
-  color: #ffffff;
+    font-size: 30px; /* ② */
+    padding: 5px;
+    color: #ffffff;
 }
 /* ウィンドウエリア */
 
 #container{
 
-    max-width: 17%;
-    max-height: 75%;
+    max-width: 21%;
+    max-height: 70%;
     background-color:rgba(0,0,0,0.2);
     border-radius: 15px;
     padding: 30px;
     margin: 0 auto;
-
 }
 
 .login-text{
  text-align: center;
- font-size:1.5rem;
+ font-size:17px;
  color: #ffffff;
- margin: 40px;
+ padding: 0 0 35px 0;
 }
 
 .form{
@@ -65,7 +63,7 @@ body{
 }
 
 .form-wrapper{
-    margin-bottom: 30px;
+    padding: 0 0 20px 0;
     color: #ffffff;
 
 
@@ -95,7 +93,7 @@ body{
     color: #ffffff;
     background-color: #dc143c;
     border-radius: 5px;
-    width: 40%;
+    width: 100px;
     height: 40px;
     padding: 2px;
     border: none;
@@ -109,9 +107,13 @@ body{
 
 .login-text-s{
  text-align: center;
- font-size:1.2rem;
+ font-size:15px;
  color: #ffffff;
- margin: 40px;
+ padding: 20px 0 0 0;
+}
+
+.text{
+    color: rgb(255, 255, 255);
 }
 
 /* 新規作成エリア*/
@@ -129,7 +131,7 @@ body{
      text-align: center;
  font-size:1.2rem;
  color: #ffffff;
- margin: 40px;
+ padding: 20px 0 0 0;
 }
 
 /*ようこそエリア*/

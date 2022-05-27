@@ -12,62 +12,59 @@
 
 <!-- ログインユーザーのblade -->
 
-<p>ログインユーザーです！</p>
- <div class="card w-50 mx-auto m-5">
-        <div class="card-body">
-            <div class="pt-2">
-                <p class="h3 border-bottom border-secondary pb-3">プロフィール編集</p>
-            </div>
+ <div class="profile-wrapper">
+    <figure class = profile-icon><img src= "{{ asset('storage/images/'.$user->images) }}" class = "icon" ></figure>
+        <div class="profile">
             {!! Form::open(['url' => '/profile', 'method' => 'put', 'enctype' => 'multipart/form-data']) !!}
             {!! Form::hidden('id',$user->id) !!}
-            <div class="m-3">
-                <div class="form-group pt-1">
-                    {{Form::label('name','username')}}
+            <div class="profile-form">
+                <div class="profile-form-f">
+                    {{Form::label('name','username',['class' => 'label-control'])}}
                     {{Form::text('name', $user->username, ['class' => 'form-control', 'id' =>'name'])}}
                     <span class="text-danger">{{$errors->first('name')}}</span>
+                    </div>
                 </div>
-                <div class="form-group pt-2">
-                    {{Form::label('email','mail-adress')}}
+                <div class="profile-form-f">
+                    {{Form::label('email','mail-adress',['class' => 'label-control'])}}
                     {{Form::email('email', $user->mail, ['class' => 'form-control', 'id' =>'email'])}}
                     <span class="text-danger">{{$errors->first('email')}}</span>
                 </div>
-                <div class="form-group pt-3">
-                    {{Form::label('password','password')}}
+                <div class="profile-form-f">
+                    {{Form::label('password','password',['class' => 'label-control'])}}
                     {{Form::password('password', ['class' => 'form-control', 'id' =>'password'])}}
                     <span class="text-danger">{{$errors->first('password')}}</span>
                 </div>
-                <div class="form-group pt-4">
-                    {{Form::label('password_confirmation','password_confirmation')}}
+                <div class="profile-form-f">
+                    {{Form::label('password_confirmation','password_confirmation',['class' => 'label-control'])}}
                     {{Form::password('password_confirmation', ['class' => 'form-control', 'id' =>'password_confirmation'])}}
                     <span class="text-danger">{{$errors->first('password_confirmation')}}</span>
                 </div>
-                <div class="form-group pt-5">
-                    {{Form::label('bio','bio')}}
+                <div class="profile-form-f">
+                    {{Form::label('bio','bio',['class' => 'label-control'])}}
                     {{Form::text('bio', $user->bio, ['class' => 'form-control', 'id' =>'bio'])}}
                     <span class="text-danger">{{$errors->first('bio')}}</span>
                 </div>
                 <!-- <form method="put" action="/profile" enctype="multipart/form-data"> -->
+                <div class="profile-form-f">
+                    <label for="profile_image" class="label-control" >image</label>
 
-                    <label for="profile_image">image</label>
-
-                    <label for="profile_image" class="btn">
+                    <label for="profile_image" class="image-form-control">
                     <!-- <img src="{{ asset('storage/profiles/'.$user->images) }}" id="img"> -->
-                    <input id="images" type="file"  name="images" onchange="previewImage(this);">
-                    </label>
-
-                    <!-- </form> -->
-                 <!-- <div class="form-group pt-6">
-                    {{Form::label('image','image')}}
-                    {{Form::email('image', $user->images, ['class' => 'form-control', 'id' =>'image'])}}
-                    <span class="text-danger">{{$errors->first('image')}}</span>
-                </div> -->
-                <div class="form-group pull-right">
-                    {{Form::submit(' 更新する ', ['class'=>'btn btn-success rounded-pill'])}}
+                    <div class = file-control>
+                        <label class = "file-image">
+                            <input id="images" type="file"  name="images" onchange="previewImage(this);" class="profile-form-6">ファイルを選択
+                        </label>
+                    </div>
+                </label>
+                </div>
+                <div class="profile-form-btn">
+                    {{Form::submit(' 更新 ', ['class'=>'btn btn-success rounded-pill'])}}
                 </div>
             </div>
+            
             {!! Form::close() !!}
         </div>
-    </div>
+
 
 @else
 

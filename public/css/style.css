@@ -15,9 +15,19 @@ header{
     justify-content: center;
 }
 
+.head-menu{
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 10px 0 0 90px;
+}
 
+.head-name{
+    padding: 15px 0 0 0;
+    width: 100px;
+    color: #fff;
+}
 .top_head_logo{
-    width: 25%;
+    width: 100px;
     padding: 15px;
 }
 
@@ -56,9 +66,13 @@ header{
   padding: 1rem;
 }
 
-a:visited{
-    color: #fff;
+.text{
+    color: #000;
 }
+
+/* a:visited{
+    color: #fff;
+} */
 
 .icon{
     width: 50px;
@@ -137,6 +151,19 @@ a:visited{
     padding: 10px;
     text-align: center;
     vertical-align: middle;
+}
+
+.text{
+    color: #fff;
+
+}
+
+.submenu__item:hover{
+    background-color: #000080;
+}
+
+.submenu__text:hover{
+    color: #fff;
 }
 /* ツイート画面 */
 
@@ -237,6 +264,10 @@ padding:15px;
     flex-wrap: nowrap;
 }
 
+.post-update{
+    padding: 10px 10px 0 0;
+}
+
 .post-post{
     max-width: 700px;
 }
@@ -248,13 +279,19 @@ padding:15px;
 }
 
 .js-modal-open{
-    max-width: 30px;
-    max-height: 30px;
+    max-width: 40px;
+    max-height: 40px;
 }
 
 .post-trash{
-    max-width: 50px;
-    max-height: 50px;
+    max-width: 60px;
+    max-height: 60px;
+}
+
+.post-trash.change{
+    max-width: 100px;
+    max-height: 100px;
+    background-image: url("../images/trash.png");
 }
 
 /* 検索エリア */
@@ -300,7 +337,7 @@ padding:15px;
 .search-box{
     display: flex;
     flex-wrap: nowrap;
-    padding: 15px 0 15px 340px;
+    padding: 0 0 30px 340px;
 
 }
 
@@ -310,6 +347,7 @@ padding:15px;
 
 .search-name{
     padding: 15px 0 0 40px;
+    width: 120px;
 }
 
 .search-follow-btn{
@@ -343,6 +381,26 @@ padding:15px;
     top: 50%;
     transform: translate(-50%,-50%);
     width: 60%;
+    height: 50%;
+    border-radius: 15px;
+}
+
+.modal_post{
+    left: 50%;
+    top: 41%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    width: 91%;
+    height: 57%;
+
+}
+
+.modal_btn{
+    left: 93%;
+    top: 82%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    width: 5%;
 }
 
 
@@ -376,6 +434,74 @@ padding:15px;
 
 
 /* プロフィールエリア */
+
+
+.profile-wrapper{
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 5% 30% 20% 20%;              /* 余白指定 */    /* 背景色指定 */
+    position: relative;
+}
+
+.profile-icon{
+    padding: 0 30px 0 0;
+}
+
+.profile-form-f{
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 0 0 40px 0;
+
+}
+
+.label-control{
+    width: 220px;
+}
+
+.form-control{
+    width: 385px;
+    height: 30px;
+    background-color: #e9e9e9;
+    border: 2px solid #9b9b9b;
+}
+
+.image-form-control{
+    background-color: #e9e9e9;
+    border: 2px solid #9b9b9b;
+    text-align: center;
+    width: 385px;
+    height: 100px;
+}
+
+.file-image{
+    padding: 10px 40px;
+    color: #d1d1d1;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.file-control{
+    padding: 40px 0 0 0;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+
+
+.profile-form-btn{
+    padding: 40px 0 0 120px;
+    width: 385px;
+}
+
+.btn-success{
+    background-color: #ff6d6d;
+}
+
+
+
+/* 他ユーザープロフィール */
 
 .profile-follow-wrapper{
     display: flex;

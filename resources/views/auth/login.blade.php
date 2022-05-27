@@ -18,7 +18,7 @@
     <div class =form-button>
   {{ Form::submit('Login',['class' => 'button']) }}
 </div>
-<p class=login-text-s><a href="/register">新規ユーザーの方はこちら</a></p>
+<p class=login-text-s><a href="/register" class=text>新規ユーザーの方はこちら</a></p>
 
 {!! Form::close() !!}
 

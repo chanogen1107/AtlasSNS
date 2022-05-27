@@ -31,20 +31,24 @@
     <div id = "head">
       <h1><a href="/top"><img class=top_head_logo src="images/atlas.png"></a>
       </h1>
+    
       <ul class="menu">
         <li class="menu__item">
-          <a class="menu__item__link js-menu__item__link" href="">
-          {{ Auth::user()->username }}さん
-          <img src="{{ asset('storage/images/'.Auth::user()->images) }}" class = "icon"></a>
+
+            <a class="head-menu js-menu__item__link" href="">
+          <div class = head-name>{{ Auth::user()->username }}さん</div>
+          <img src="{{ asset('storage/images/'.Auth::user()->images) }}" class = "icon">
+        </a>
+         
             <ul class="submenu">
               <li class="submenu__item">
-                <a href="/top">HOME</a>
+                <a href="/top" class="submenu__text" >HOME</a>
               </li>
               <li class="submenu__item">
-                <a href="/profile/{{ Auth::user()->id }}">プロフィール編集</a>
+                <a href="/profile/{{ Auth::user()->id }}" class="submenu__text">プロフィール編集</a>
               </li>
                 <li class="submenu__item">
-                    <a href="/logout">ログアウト</a>
+                    <a href="/logout"class="submenu__text">ログアウト</a>
                 </li>
             </ul>
         </li>
@@ -75,18 +79,18 @@
                 <p class=count>{{ $follow_count }}名</p>
                 </div>
                 <div class = follow-btn>
-                <p class="btn , f"><a href="/follow-list">フォローリスト</a></p>
+                <p class="btn , f"><a href="/follow-list" class = text>フォローリスト</a></p>
                 </div>
                 <div  class=follow>
                 <p class=lavel>フォロワー数</p>
                 <p class=count>{{ $follower_count }}名</p>
                 </div>
                 <div class = follow-btn>
-                <p class="btn , f"><a href="/follower-list">フォロワーリスト</a></p>
+                <p class="btn , f"><a href="/follower-list" class = text>フォロワーリスト</a></p>
                 </div>
             </div>
             <div class = search-btn>
-            <p class="btn , s"><a href="/search">ユーザー検索</a></p>
+            <p class="btn , s"><a href="/search" class = text>ユーザー検索</a></p>
             </div>
         </div>
     </div>
