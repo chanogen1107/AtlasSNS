@@ -8,6 +8,15 @@ $(function () {
   });
 });
 
+$(function () {
+  $('.js-menu__item__link').click(function () {        //ハンバーガーボタン（.menu-trigger）をタップすると、
+    $('.head-toggle').toggleClass('active');              //タップしたハンバーガーボタン（.menu-trigger）に（.active）を追加・削除する。
+  });
+  $('.js-menu__item__link ul li a').click(function () { //各メニューリンク（.nav-wrapper ul li a）をタップすると、
+    $('.head-toggle').removeClass('active');   //ハンバーガーボタン（.menu-trigger）にある（.active）を削除する。
+  });
+});
+
 $(".post-trash").on("click", function () {
   if ($(this).hasClass("change")) {
     $(this).attr("src", "../images/trash.png");

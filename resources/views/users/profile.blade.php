@@ -2,11 +2,6 @@
 
 @section('content')
 
-<!-- @if(isset($username))
-<p>{{$username->id}}</p>
-@else
-<p>メッセージは存在しません。</p>
-@endif -->
 
 @if($username->id == auth()->user()->id)
 
@@ -21,29 +16,28 @@
                 <div class="profile-form-f">
                     {{Form::label('name','username',['class' => 'label-control'])}}
                     {{Form::text('name', $user->username, ['class' => 'form-control', 'id' =>'name'])}}
-                    <span class="text-danger">{{$errors->first('name')}}</span>
                     </div>
-                </div>
+                    <span class="text-danger">{{$errors->first('name')}}</span>
                 <div class="profile-form-f">
                     {{Form::label('email','mail-adress',['class' => 'label-control'])}}
                     {{Form::email('email', $user->mail, ['class' => 'form-control', 'id' =>'email'])}}
-                    <span class="text-danger">{{$errors->first('email')}}</span>
                 </div>
+                <span class="text-danger">{{$errors->first('email')}}</span>
                 <div class="profile-form-f">
                     {{Form::label('password','password',['class' => 'label-control'])}}
                     {{Form::password('password', ['class' => 'form-control', 'id' =>'password'])}}
-                    <span class="text-danger">{{$errors->first('password')}}</span>
                 </div>
+                <span class="text-danger">{{$errors->first('password')}}</span>
                 <div class="profile-form-f">
                     {{Form::label('password_confirmation','password_confirmation',['class' => 'label-control'])}}
                     {{Form::password('password_confirmation', ['class' => 'form-control', 'id' =>'password_confirmation'])}}
-                    <span class="text-danger">{{$errors->first('password_confirmation')}}</span>
                 </div>
+                <span class="text-danger">{{$errors->first('password_confirmation')}}</span>
                 <div class="profile-form-f">
                     {{Form::label('bio','bio',['class' => 'label-control'])}}
                     {{Form::text('bio', $user->bio, ['class' => 'form-control', 'id' =>'bio'])}}
-                    <span class="text-danger">{{$errors->first('bio')}}</span>
                 </div>
+                <span class="text-danger">{{$errors->first('bio')}}</span>
                 <!-- <form method="put" action="/profile" enctype="multipart/form-data"> -->
                 <div class="profile-form-f">
                     <label for="profile_image" class="label-control" >image</label>
@@ -54,6 +48,7 @@
                         <label class = "file-image">
                             <input id="images" type="file"  name="images" onchange="previewImage(this);" class="profile-form-6">ファイルを選択
                         </label>
+                    </div>
                     </div>
                 </label>
                 </div>

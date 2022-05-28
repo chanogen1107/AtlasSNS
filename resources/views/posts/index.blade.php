@@ -15,12 +15,13 @@
       @csrf
       <input type = "text" placeholder = "投稿内容を入力してください"  name = post class = tweet-input>
       <input type = "image" src = "../images/post.png" alt = "送信する" class =tweet-button>
-    @if($errors->first('post'))
-    <p>※{{$errors->first('post')}}</p>
-    @endif
   </form>
 </div>
+@if($errors->first('post'))
+    <p class = post-danger>※{{$errors->first('post')}}</p>
+    @endif
 </div>
+
 
 <!-- ツイート表示 -->
 <div class="post-wrapper">
@@ -57,6 +58,9 @@
                 <!-- <input type="submit" value="更新"> -->
                 {{ csrf_field() }}
            </form>
+           @if($errors->first('post'))
+    <p class = post-danger>※{{$errors->first('post')}}</p>
+    @endif
            <a class="js-modal-close" href="">閉じる</a>
         </div>
     </div>

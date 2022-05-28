@@ -31,16 +31,20 @@
     <div id = "head">
       <h1><a href="/top"><img class=top_head_logo src="images/atlas.png"></a>
       </h1>
-    
       <ul class="menu">
         <li class="menu__item">
 
             <a class="head-menu js-menu__item__link" href="">
           <div class = head-name>{{ Auth::user()->username }}さん</div>
+          <div class = head-toggle>
+          <span></span>
+          <span></span>
+</div>
+
+
           <img src="{{ asset('storage/images/'.Auth::user()->images) }}" class = "icon">
         </a>
-         
-            <ul class="submenu">
+              <ul class="submenu">
               <li class="submenu__item">
                 <a href="/top" class="submenu__text" >HOME</a>
               </li>
@@ -54,6 +58,7 @@
         </li>
     </ul>
 </div>
+
             <!-- <div id="ac-wrapper">
                 <div id="ac-menu">
                     <p>〇〇さん<img src="images/arrow.png"></p>

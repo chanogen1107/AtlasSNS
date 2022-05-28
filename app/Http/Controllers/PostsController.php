@@ -21,7 +21,11 @@ class PostsController extends Controller
     public function store(Request $request) // <--- 色々変更
     {
         $validator = $request->validate([ // これだけでバリデーションできるLaravelすごい！
-            'post' => ['required', 'string', 'max:140'], // 必須・文字であること・280文字まで（ツイッターに合わせた）というバリデーションをします（ビューでも軽く説明します。）
+            'post' => ['required', 'string', 'max:200'], 
+            
+            'post.required' => 'ツイート内容を入力してください',
+            'post.string' => 'ツイートは文字で入力してください',
+            'post.max' => 'ツイートは200文字以内で入力してください',
         ]);
         Post::create([ // tweetテーブルに入れるよーっていう合図
             'user_id' => Auth::user()->id,
@@ -33,9 +37,13 @@ class PostsController extends Controller
 
     public function edit(Request $request)
     {
-        // $validator = $request->validate([
-        //     'post' => ['required', 'string', 'max:140'],
-        // ]);
+        $validator = $request->validate([ // これだけでバリデーションできるLaravelすごい！
+            'post' => ['required', 'string', 'max:200'], 
+            
+            'post.required' => 'ツイート内容を入力してください',
+            'post.string' => 'ツイートは文字で入力してください',
+            'post.max' => 'ツイートは200文字以内で入力してください',
+        ]);
           $id = $request->input('id');
           $up_post = $request->input('upPost');
           Post::query()
