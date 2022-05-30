@@ -6,7 +6,7 @@
   @csrf
   <form action="/search" method="get" class="search-form-box">
     <div class="search-input-b"><input type="text"  placeholder="ユーザー名" name="username" class="search-input"></div>
-    <div class="search-button-b"><button type="submit" class="btn search-button">検索</button></div>
+    <div class="search-button-b"><button type="submit" class="btn search-button"><span class = search-button-icon></span></button></div>
 @if(!empty($message))
     <div class="search-primary" role="alert">{{ $message}}</div>
 @endif

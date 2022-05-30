@@ -17,14 +17,10 @@ $(function () {
   });
 });
 
+$(function () {
 $(".post-trash").on("click", function () {
-  if ($(this).hasClass("change")) {
-    $(this).attr("src", "../images/trash.png");
-    $(this).toggleClass("change");
-  } else {
-    $(this).attr("src", "../images/trash-h.png");
-    $(this).toggleClass("change");
-  }
+  $(this).hasClass("change");
+ });
 });
 
 $(function(){

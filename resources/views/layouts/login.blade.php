@@ -29,20 +29,20 @@
 <body>
   <header>
     <div id = "head">
-      <h1><a href="/top"><img class=top_head_logo src="images/atlas.png"></a>
+      <h1><a href="/top"><img class=top_head_logo src="{{ asset('/images/atlas.png') }}"></a>
       </h1>
       <ul class="menu">
         <li class="menu__item">
 
             <a class="head-menu js-menu__item__link" href="">
-          <div class = head-name>{{ Auth::user()->username }}さん</div>
-          <div class = head-toggle>
-          <span></span>
-          <span></span>
+          <div class = head-name><div class = head-name-user>{{ Auth::user()->username }}さん</div>
+            <div class = head-toggle>
+          <div><</div>
+          </div>
 </div>
 
 
-          <img src="{{ asset('storage/images/'.Auth::user()->images) }}" class = "icon">
+          <img src="{{ asset('storage/images/'.Auth::user()->images) }}" class = "icon head-icon">
         </a>
               <ul class="submenu">
               <li class="submenu__item">

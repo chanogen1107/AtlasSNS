@@ -38,11 +38,11 @@ class PostsController extends Controller
     public function edit(Request $request)
     {
         $validator = $request->validate([ // これだけでバリデーションできるLaravelすごい！
-            'post' => ['required', 'string', 'max:200'], 
+            'upPost' => ['required', 'string', 'max:200'], 
             
-            'post.required' => 'ツイート内容を入力してください',
-            'post.string' => 'ツイートは文字で入力してください',
-            'post.max' => 'ツイートは200文字以内で入力してください',
+            'upPost.required' => 'ツイート内容を入力してください',
+            'upPost.string' => 'ツイートは文字で入力してください',
+            'upPost.max' => 'ツイートは200文字以内で入力してください',
         ]);
           $id = $request->input('id');
           $up_post = $request->input('upPost');

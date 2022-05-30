@@ -33,31 +33,30 @@ Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
-
-Route::get('/top','PostsController@index')->middleware('auth');
+Route::group(['middleware' => ['auth']], function(){
+Route::get('/top','PostsController@index');
 Route::Post('/top', 'PostsController@store')->name('post-store');
-Route::Post('/edit', 'PostsController@edit')->middleware('auth');
-Route::get('/delete/{id}','PostsController@delete')->middleware('auth');
+Route::Post('/edit', 'PostsController@edit');
+Route::get('/delete/{id}','PostsController@delete');
 
 
 
-Route::get('/profile/{id}','UsersController@profile')->middleware('auth');
+Route::get('/profile/{id}','UsersController@profile');
 //プロフィール編集
-Route::put('/profile', 'UsersController@profileUpdate')->middleware('auth');
+Route::put('/profile', 'UsersController@profileUpdate');
 
 
-
-Route::get('/search','UsersController@index')->middleware('auth');
+Route::get('/search','UsersController@index');
 
 
 Route::post('users/{id}/follow', 'UsersController@follow')->name('follow');
 Route::delete('users/{id}/unfollow', 'UsersController@unfollow')->name('unfollow');
 ;
 
-Route::get('/follow-list','FollowsController@followList')->middleware('auth');
-;
-Route::get('/follower-list','FollowsController@followerList')->middleware('auth');
+Route::get('/follow-list','FollowsController@followList');
+Route::get('/follower-list','FollowsController@followerList');
 ;
 
-Route::get('/logout', 'Auth\LoginController@logout')->middleware('auth');
-;
+Route::get('/logout', 'Auth\LoginController@logout');
+
+});

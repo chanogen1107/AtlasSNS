@@ -18,10 +18,14 @@ header{
 .head-menu{
     display: flex;
     flex-wrap: nowrap;
-    padding: 10px 0 0 90px;
+    padding: 10px;
+    width: 268px;
+    height: 49px;
 }
 
 .head-name{
+    display: flex;
+    flex-wrap: nowrap;
     padding: 15px 0 0 0;
     width: 100px;
     color: #fff;
@@ -48,7 +52,8 @@ header{
   cursor: pointer;
   display: block;
   margin-bottom: 1px;
-  position: relative;
+  position: absolute;
+  padding: 0 0 0 0;
 }
 .menu__item__link {
   color: #fff;
@@ -58,43 +63,66 @@ header{
 
 .submenu {
   background: #fff;
+  border: 2px solid #000080;
   display: none;
 }
 .submenu__item {
   border-bottom: 1px solid #000080;
   color: #a9a9a9;
-  padding: 1rem;
+  padding: 28px 0 0 0;
+  height: 50px;
+  text-align: center;
+}
+
+.submenu__text{
+
+    text-align: center;
 }
 
 .text{
     color: #000;
 }
-.head-toggle span {
+
+.head-icon{
+    padding: 0 0 0 100px;
+}
+
+.head-name-user{
+    padding: 0 0 0 0;
+    width: 200px;
+}
+
+.head-name-san{
+    padding: 0 20px 0 0;
+    width: 20px;
+}
+
+.head-toggle div {
     display: inline-block;
     width: 20px;
-    border-bottom: solid 2px #fff;
+    font-size: 20px;
+    /* border-bottom: solid 2px #fff; */
     border-radius: 3px;
-    transform: rotate(-60deg);
-    padding: 20px 0 0 0;
+    /* transform: rotate(-60deg); */
+    padding: 0 0 0 0px;
   }
 
-.head-toggle span:nth-child(1) {
-    transform: rotate(-66deg);
+.head-toggle div:nth-child(1) {
+    transform: rotate(90deg);
 }
 
-.head-toggle span:nth-child(2) {
+/* .head-toggle span:nth-child(2) {
     transform: rotate(66deg);
-}
+} */
 
-.head-toggle.active span:nth-child(1) {
-    transform: rotate(66deg);
-    padding: 2px;
+.head-toggle.active div:nth-child(1) {
+    transform: rotate(-90deg);
   }
 
-.head-toggle.active span:nth-child(2) {
+/* .head-toggle.active span:nth-child(2) {
     transform: rotate(-66deg);
     padding: 2px;
-  }
+  } */
 
 
 /* a:visited{
@@ -187,6 +215,7 @@ header{
 
 .submenu__item:hover{
     background-color: #000080;
+    color: #fff;
 }
 
 .submenu__text:hover{
@@ -322,6 +351,7 @@ padding:15px;
 .post-trash.change{
     max-width: 100px;
     max-height: 100px;
+    /* background-color: #000080; */
     background-image: url("../images/trash.png");
 }
 
@@ -364,7 +394,9 @@ padding:15px;
 .search-button{
     height: 50px;
     width: 50px;
+    position: relative;
 }
+
 
 .search-box{
     display: flex;
@@ -385,6 +417,32 @@ padding:15px;
 .search-follow-btn{
     padding: 0 0 0 202px;
     justify-content: left;
+}
+
+.search-button-icon{
+	position: absolute;
+	display: block;
+	top: 50%;
+	left: 50%;
+	width: 35%;
+	height: 34%;
+	border-radius: 50%;
+	margin: -15px 0 0 -14px;
+	border: 4px solid #ffffff;
+}
+
+.search-button-icon::after{
+position: absolute;
+display: block;
+content: "";
+top: 50%;
+left: 50%;
+width: 72%;
+height: 36%;
+background: #ffffff;
+border-radius: 2px;
+margin: 10px 0 0 4px;
+transform: rotate(45deg);
 }
 
 /*ツイート編集モーダル*/
@@ -552,10 +610,27 @@ input[type="file"] {
     padding: 0 0 0 10px;
 }
 
+.profile-label{
+    width: 100px;
+    padding: 0 30px 0 0;
+}
+
 .profile-name{
+    display: flex;
+    flex-wrap: nowrap;
     margin-bottom: 30px;
 }
 
+.profile-about{
+    width: 300px;
+}
+
+.profile-bio{
+    display: flex;
+    flex-wrap: nowrap;
+
+}
+
 .follow-button{
-    padding: 35px 0 0 523px;
+    padding: 35px 0 0 375px;
 }

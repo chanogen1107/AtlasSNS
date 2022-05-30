@@ -1,3 +1,11 @@
+@extends('layouts.logout')
+
+@section('content')
+
+{!! Form::open() !!}
+
+<h2 class = register-text>新規ユーザー登録</h2>
+
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
@@ -7,14 +15,6 @@
         </ul>
     </div>
 @endif
-
-@extends('layouts.logout')
-
-@section('content')
-
-{!! Form::open() !!}
-
-<h2 class = register-text>新規ユーザー登録</h2>
 
 <div class =form-wrapper>
 {{ Form::label('ユーザー名') }}

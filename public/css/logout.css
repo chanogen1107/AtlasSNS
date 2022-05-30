@@ -158,6 +158,10 @@ body{
     margin: 0,auto;
 }
 
+.alert-danger{
+    color: rgb(130, 28, 28);
+    padding: 10px;
+}
 
 .btn{
 

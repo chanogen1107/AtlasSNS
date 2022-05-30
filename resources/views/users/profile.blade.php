@@ -56,7 +56,6 @@
                     {{Form::submit(' 更新 ', ['class'=>'btn btn-success rounded-pill'])}}
                 </div>
             </div>
-            
             {!! Form::close() !!}
         </div>
 
@@ -67,8 +66,8 @@
 <div class = profile-follow-wrapper>
     <img src="{{ asset('storage/images/'.$username->images) }}" alt="プロフィール画像" class = "icon">
     <div class = profile-follow-list>
-        <div class=profile-name>name{{$username -> username}}さん</div>
-        <div class=profile-bio>bio{{$username -> bio}}</div>
+        <div class=profile-name><div class=profile-label >name</div><div class =profile-about>{{$username -> username}}</div></div>
+        <div class=profile-bio><div class=profile-label >bio</div><div class =profile-about>{{$username -> bio}}</div></div>
     </div>
     <div class="follow-button">
         @if (auth()->user()->isFollowing($username->id))
