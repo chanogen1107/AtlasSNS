@@ -113,36 +113,36 @@ public function profileUpdate(Request $request, User $user)
     }
 
 
-    public function search(Request $request){
-        $keyword_name = $request->username;
-        // dd($keyword_name);
-//カラム（列）がないよってよ=nameじゃなくてusernameだった。
-        if(!empty($keyword_name)) {
-      // $query = User::query();
-      $users = User::query()->where('username','like', '%' .$keyword_name. '%')->get();
-      // dd($users);
-      $message = "検索ワード：". $keyword_name."";
-      dd($message);
-      //viewが見当たらねえってよ=users.入れてないからだった
-      return redirect('/search')
-      ->with([
-        'users' => $users,
-        'message' => $message,
-      ]
-    );
+//     public function search(Request $request){
+//         $keyword_name = $request->username;
+//         // dd($keyword_name);
+// //カラム（列）がないよってよ=nameじゃなくてusernameだった。
+//         if(!empty($keyword_name)) {
+//       // $query = User::query();
+//       $users = User::query()->where('username','like', '%' .$keyword_name. '%')->get();
+//       // dd($users);
+//       $message = "検索ワード：". $keyword_name."";
+//       dd($message);
+//       //viewが見当たらねえってよ=users.入れてないからだった
+//       return redirect('/search')
+//       ->with([
+//         'users' => $users,
+//         'message' => $message,
+//       ]
+//     );
 
-    } else {
-      $users = User::all();
-      // return view('users.search')->with('users', $users);
-      $message = "検索結果はありません。";
-      // dd($message);
-      // return view('users.search-end')->with('message',$message);
-      return back()
-      ->with([
-        'users' => $users,
-        'message' => $message,
-      ]);}
-    }
+//     } else {
+//       $users = User::all();
+//       // return view('users.search')->with('users', $users);
+//       $message = "検索結果はありません。";
+//       // dd($message);
+//       // return view('users.search-end')->with('message',$message);
+//       return back()
+//       ->with([
+//         'users' => $users,
+//         'message' => $message,
+//       ]);}
+//     }
 
     // フォロー
     public function follow(User $user, $id)
