@@ -629,7 +629,6 @@ input[type="file"] {
 .profile-bio{
     display: flex;
     flex-wrap: nowrap;
-
 }
 
 .follow-button{
